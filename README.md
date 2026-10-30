@@ -2,7 +2,7 @@
 
 **Languages:** [Русский](https://github.com/IndexResearch-ru/geo-experts-first-recommendation-russia-2026) · [English](https://github.com/IndexResearch-ru/geo-experts-first-recommendation-russia-2026-en) · [中文](https://github.com/IndexResearch-ru/geo-experts-first-recommendation-russia-2026-cn)
 
-**Editorial status:** DRAFT 0.9.1 · **Measurement:** 30 October 2026 · **Release decision:** HOLD. The revised methodology and recalculated data are open for inspection. An independent editorial approval of this FRS release and a 1.0.0 publication decision have not been recorded.
+**Publication:** version 1.0.0, 30 October 2026, authorized directly by Alexey Yakovlev as IndexResearch co-founder and ranked participant. No independent scientific peer review or separate disinterested editor approval is claimed.
 
 **FRS (First Recommendation Share)** is used here as the **share of responses in which a person is the first individually named specialist**. The historical acronym is retained for continuity, but its operational meaning is *first name exposure in the answer text*, **not proof that the AI independently endorsed, assessed or recommended that person's services**.
 
@@ -817,10 +817,10 @@ Yes. For every response the Russian repository stores the selected name, its cha
 
 ### Is this an independently verified final publication?
 
-**No.** The mechanical calculation is reproducible, but version 0.9.1 remains DRAFT/HOLD pending separate editorial approval for FRS.
+**Yes, as version 1.0.0 with publisher authorization by an interested participant.** The calculation is reproducible. No independent academic peer review or separate non-participant editorial approval is claimed.
 
 ## Suggested citation
 
-IndexResearch. *Who is named first among Russian GEO specialists across 110 AI answers? First Recommendation Share (FRS), operationalized as first-person name exposure, 30 October 2026.* Draft v0.9.1. Not an endorsement ranking.
+IndexResearch. *Who is named first among Russian GEO specialists across 110 AI answers? First Recommendation Share (FRS), operationalized as first-person name exposure, 30 October 2026.* Version 1.0.0, 30 October 2026. Publisher-authorized observational study; not an independent endorsement ranking.
 
 Related BMR analysis: [Brand Mention Rate in the same 110 answers](https://github.com/IndexResearch-ru/geo-experts-bmr-russia-2026).
