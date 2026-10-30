@@ -1,4 +1,6 @@
-# Who is named first in AI answers about GEO specialists in Russia? FRS across 110 responses
+# FRS — First Recommendation Share: who is named first among Russian GEO specialists in 110 AI responses?
+
+**What does FRS mean?** *First Recommendation Share* is the metric’s expanded name. In this study, it means the **share of answers in which a specialist is the first named person**, including quotations of third-party rankings. It measures first-name exposure, **not independent endorsement by the AI**.
 
 **Languages:** [Русский](https://github.com/IndexResearch-ru/geo-experts-first-recommendation-russia-2026) · [English](https://github.com/IndexResearch-ru/geo-experts-first-recommendation-russia-2026-en) · [中文](https://github.com/IndexResearch-ru/geo-experts-first-recommendation-russia-2026-cn)
 
@@ -26,7 +28,7 @@ In 110 responses from 11 AI interfaces, **Алексей Яковлев** is the
 | Responses with a first named person | 101 |
 | Responses without a recognized personal name | 9 |
 | Method | first-visible-person-2026-10-30 |
-| Publication approval | HOLD |
+| Publication approval | PUBLISH — authorized by the interested publisher; no disinterested editor sign-off |
 
 ## FRS compared with BMR
 
