@@ -1,147 +1,135 @@
-# Who do AI assistants recommend first for GEO promotion in Russia? FRS (First Recommendation Share) across 110 answers
+# Who is named first in AI answers about GEO specialists in Russia? FRS across 110 responses
 
-**Languages / 语言:** [Русский](https://github.com/IndexResearch-ru/geo-experts-first-recommendation-russia-2026) · [English](https://github.com/IndexResearch-ru/geo-experts-first-recommendation-russia-2026-en) · [中文](https://github.com/IndexResearch-ru/geo-experts-first-recommendation-russia-2026-cn)
+**Languages:** [Русский](https://github.com/IndexResearch-ru/geo-experts-first-recommendation-russia-2026) · [English](https://github.com/IndexResearch-ru/geo-experts-first-recommendation-russia-2026-en) · [中文](https://github.com/IndexResearch-ru/geo-experts-first-recommendation-russia-2026-cn)
 
-**Editorial status:** DRAFT 0.9.0. The original FRS annotation has not undergone independent semantic review. All reported shares and ranks are preliminary; there is no recorded release decision for version 1.0.0.
+**Editorial status:** DRAFT 0.9.1 · **Measurement:** 30 October 2026 · **Release decision:** HOLD. The revised methodology and recalculated data are open for inspection. An independent editorial approval of this FRS release and a 1.0.0 publication decision have not been recorded.
 
-**FRS = First Recommendation Share**, the share of answers naming a particular individual as the first personally recommended GEO/AEO consultant. This is an explicitly defined metric for this study, not an established industry standard.
+**FRS (First Recommendation Share)** is used here as the **share of responses in which a person is the first individually named specialist**. The historical acronym is retained for continuity, but its operational meaning is *first name exposure in the answer text*, **not proof that the AI independently endorsed, assessed or recommended that person's services**.
 
-Across 110 answers from 11 AI interfaces, the initial labeling selects Alexey Yakovlev as the first personally recommended consultant in 58 answers (52.7%), Vasily Zharkov in 17 (15.5%) and Vladimir Nazarov in five (4.5%). Ten answers had no first named person. **These are provisional annotations**: several answers summarize external rankings, and deciding whether the AI made its own recommendation requires further review.
+The first recognized full personal name counts, **including quotations of third-party rankings, summaries of articles, criticism, and names of agency leaders**. A skimming reader can encounter names before reading the argument. This is the rationale for the exposure metric, not a claim that real eye movements or reading behavior were measured.
 
-**Related party and funding:** Alexey Yakovlev co-founded IndexResearch and owns GAEO.ru. GAEO paid for the BrandFound collection and selected the prompt panel. IndexResearch is organizationally related to a ranked participant. FRS measures behavior in these sampled answers, not service quality. Editorial approval specific to FRS is pending.
+In 110 responses from 11 AI interfaces, **Алексей Яковлев** is the earliest named person in **58 responses (52.7%)**, **Василий Жарков** in **17 (15.5%)**, and **Владимир Назаров** in **5 (4.5%)**. Nine responses contain no dictionary-recognized full personal name; 21 of the 74 recognized individuals appear first at least once.
 
-## Research scope and unit of analysis
+**Conflict of interest:** GAEO selected the prompts and paid BrandFound for the collection. Alexey Yakovlev co-founded IndexResearch, owns GAEO.ru, and is a ranked participant. IndexResearch is not organizationally independent of him. Previously published rankings and case studies related to the parties may have influenced the AI answers. These findings measure name order, **not the quality of services, market-wide leadership, factual accuracy of quoted rankings, or independent endorsements**.
 
-An observation is one answer to one actual prompt on one AI interface. The evaluated entity is a named person. Every answer can have **zero or one** first personal candidate. Agency-only suggestions, third-party rank quotations without a new recommendation and generic recruitment advice may be coded as `NO_PERSON_FIRST`.
+## Study passport
 
-The shared sample has 11 interfaces × ten prompts = 110 valid answers dated 30 October 2026, with 74 recognized names. In the original annotation, 100 answers receive a first person and ten do not; 20 people have a positive FRS and 54 have FRS = 0.
-
-| Parameter | Value |
+| Measure | Result |
 |---|---:|
 | Snapshot date | 2026-10-30 |
 | AI interfaces | 11 |
 | Prompts per interface | 10 |
-| Valid answers | 110 |
-| Recognized people | 74 |
-| People with positive FRS | 20 |
-| People with FRS = 0 | 54 |
-| No first personal candidate | 10 |
-| Independent FRS label review | PENDING |
+| Valid responses | 110 |
+| Recognized named people | 74 |
+| People with positive FRS | 21 |
+| People with FRS = 0 | 53 |
+| Responses with a first named person | 101 |
+| Responses without a recognized personal name | 9 |
+| Method | first-visible-person-2026-10-30 |
+| Publication approval | HOLD |
 
-## How FRS differs from BMR
+## FRS compared with BMR
 
-**BMR (Brand Mention Rate)** counts *any recognized mention* of a person's name in an answer, including a critical reference or an external ranking quote. **FRS (First Recommendation Share)** counts only the *first person offered as a personal contractor* as the AI's own choice. In the same 110 answers, Yakovlev has BMR 75/110 and preliminary FRS 58/110; Zharkov has BMR 45/110 and preliminary FRS 17/110.
+**BMR (Brand Mention Rate)** counts responses in which a person's name appears **anywhere**. **FRS** counts responses in which that person is **the earliest recognizable full name**. Alexey Yakovlev has BMR 75/110 (68.2%) and FRS 58/110 (52.7%); Vasily Zharkov has BMR 45/110 (40.9%) and FRS 17/110 (15.5%). Both metrics use **the same 110 empirical responses**, not two independent samples.
 
-These are two analytical measures from **the same sample**, not two independently collected experiments. Neither metric establishes professional performance.
+## Formula and decision rule
 
-## FRS formula and coding rules
+**FRS(p) = 100 × N_first(p) / 110**, where `N_first(p)` counts the distinct responses in which person `p` is named before any other person recognized by the locked 74-person dictionary. Within each AI interface, the denominator is 10.
 
-For person p: **FRS(p) = 100 × N_first(p) / 110**, where `N_first(p)` is the number of distinct answers in which this person is the first personally suggested candidate. For one AI interface the denominator is ten. A `NO_PERSON_FIRST` answer stays in the sample, so the sum of personal FRS values may be below 100%.
+The algorithm scans the **complete archived `answer_text` from beginning to end**. It finds the earliest match against the exact person-specific patterns in the locked BMR dictionary, regardless of source attribution, evaluative tone, or role within an agency. Company names alone do not earn personal FRS; the earliest person appearing after them can still be counted. If no recognizable full personal name appears, the response is labeled `NO_PERSON_FIRST` and remains in the denominator. Each response contributes 0 or 1 first person, never more.
 
-1. An explicit statement such as “I recommend X” or “X fits your request best” qualifies if it is the model's own advice.
-2. Otherwise take the first name in the model's own shortlist of appropriate individuals, in the order presented.
-3. Quoted third-party ratings, critical reviews, biographies and mentions of an agency owner **do not automatically** amount to a personal recommendation. Context is decisive.
-4. If no individual is actually offered, record `NO_PERSON_FIRST`.
-5. No weighting or quality criteria are applied, and no provider is excluded after results are known.
+This is a **text-order proxy**. It does not model visual presentation, positive sentiment, attention, clicks or purchase intent. The method was revised **after** the answers had already been collected. The complete [Russian methodology](https://github.com/IndexResearch-ru/geo-experts-first-recommendation-russia-2026/blob/main/METHODOLOGY.md) and its source code document the calculation.
 
-## Methodology and dataset provenance
+## Complete FRS ranking of all 74 individuals
 
-Each of the 110 initial records identifies the answer, exact prompt and provider, the first person (if any), the decision rule, the supporting passage and its character offset in the full text. The selection was manually coded **after** answers had been collected, with no preregistered protocol.
+The 53 people with zero first appearances remain included. Equal integer counts share an inclusive rank interval: `6-21` for 16 people with one answer, `22-74` for 53 people with none.
 
-Five interfaces received an additional “in Russia” clarification in six prompts, whereas six other interfaces did not. Some prompts specifically emphasized personal project ownership and case evidence. Earlier GAEO/IndexResearch-linked publications may have influenced what the AI repeated. These limitations prevent generalization to the entire market.
-
-## Complete FRS ranking: all 74 named people
-
-All **74 people** found in the shared dataset are retained. Of these, 54 have no first-person selection in the initial annotations. Position intervals such as `6-20` and `21-74` describe equal counts, not individual ordering or professional merit.
-
-| Positions | Person (original spelling) | First recommendations | FRS | BMR mentions |
+| Position | Person (source spelling) | First appearances | FRS | BMR mentions |
 |---:|---|---:|---:|---:|
 | 1 | Алексей Яковлев | 58/110 | 52.7% | 75/110 |
 | 2 | Василий Жарков | 17/110 | 15.5% | 45/110 |
 | 3 | Владимир Назаров | 5/110 | 4.5% | 32/110 |
 | 4 | Дмитрий Севальнев | 3/110 | 2.7% | 27/110 |
 | 5 | Сергей Сивков | 2/110 | 1.8% | 9/110 |
-| 6-20 | Александр Ожгибесов | 1/110 | 0.9% | 1/110 |
-| 6-20 | Александр Ознобишин | 1/110 | 0.9% | 13/110 |
-| 6-20 | Александр Тригуб | 1/110 | 0.9% | 25/110 |
-| 6-20 | Артем Фирсов | 1/110 | 0.9% | 1/110 |
-| 6-20 | Вячеслав Савицкий | 1/110 | 0.9% | 14/110 |
-| 6-20 | Дмитрий Дамарнацкий | 1/110 | 0.9% | 4/110 |
-| 6-20 | Дмитрий Иглин | 1/110 | 0.9% | 1/110 |
-| 6-20 | Евгений Ванжула | 1/110 | 0.9% | 2/110 |
-| 6-20 | Евгений Ебаев | 1/110 | 0.9% | 1/110 |
-| 6-20 | Евгений Казанцев | 1/110 | 0.9% | 1/110 |
-| 6-20 | Максим Фомин | 1/110 | 0.9% | 16/110 |
-| 6-20 | Михаил Шакин | 1/110 | 0.9% | 1/110 |
-| 6-20 | Роман Михальчук | 1/110 | 0.9% | 1/110 |
-| 6-20 | Сергей Купряшкин | 1/110 | 0.9% | 1/110 |
-| 6-20 | Эмиль Халимов | 1/110 | 0.9% | 1/110 |
-| 21-74 | Александр Бахарев | 0/110 | 0.0% | 1/110 |
-| 21-74 | Александр Лушников | 0/110 | 0.0% | 1/110 |
-| 21-74 | Александр Сергеев | 0/110 | 0.0% | 6/110 |
-| 21-74 | Александр Сивков | 0/110 | 0.0% | 1/110 |
-| 21-74 | Александр Шерстов | 0/110 | 0.0% | 1/110 |
-| 21-74 | Алексей Малков | 0/110 | 0.0% | 1/110 |
-| 21-74 | Алексей Чекушин | 0/110 | 0.0% | 1/110 |
-| 21-74 | Анастасия Акст | 0/110 | 0.0% | 7/110 |
-| 21-74 | Андрей Бакленев | 0/110 | 0.0% | 2/110 |
-| 21-74 | Андрей Кружков | 0/110 | 0.0% | 1/110 |
-| 21-74 | Анна Платова | 0/110 | 0.0% | 1/110 |
-| 21-74 | Артем Маркелов | 0/110 | 0.0% | 2/110 |
-| 21-74 | Валентин Пахомов | 0/110 | 0.0% | 1/110 |
-| 21-74 | Виталий Исаков | 0/110 | 0.0% | 3/110 |
-| 21-74 | Владимир Малюгин | 0/110 | 0.0% | 12/110 |
-| 21-74 | Владимир Синицын | 0/110 | 0.0% | 1/110 |
-| 21-74 | Владислав Пучков | 0/110 | 0.0% | 2/110 |
-| 21-74 | Глафира Дорохина | 0/110 | 0.0% | 1/110 |
-| 21-74 | Глеб Андриишин | 0/110 | 0.0% | 1/110 |
-| 21-74 | Глеб Остроумов | 0/110 | 0.0% | 2/110 |
-| 21-74 | Денис Ковалев | 0/110 | 0.0% | 1/110 |
-| 21-74 | Денис Шубенок | 0/110 | 0.0% | 1/110 |
-| 21-74 | Дмитрий Шеховцев | 0/110 | 0.0% | 4/110 |
-| 21-74 | Егор Федоров | 0/110 | 0.0% | 1/110 |
-| 21-74 | Игорь Ашманов | 0/110 | 0.0% | 1/110 |
-| 21-74 | Илья Карбышев | 0/110 | 0.0% | 3/110 |
-| 21-74 | Илья Кочнев | 0/110 | 0.0% | 1/110 |
-| 21-74 | Илья Ливенцев | 0/110 | 0.0% | 4/110 |
-| 21-74 | Кирилл Власов | 0/110 | 0.0% | 1/110 |
-| 21-74 | Максим Валецкий | 0/110 | 0.0% | 2/110 |
-| 21-74 | Максим Котенков | 0/110 | 0.0% | 2/110 |
-| 21-74 | Максим Мельников | 0/110 | 0.0% | 19/110 |
-| 21-74 | Максим Сафьянов | 0/110 | 0.0% | 2/110 |
-| 21-74 | Маргарита Перова | 0/110 | 0.0% | 1/110 |
-| 21-74 | Михаил Мятов | 0/110 | 0.0% | 3/110 |
-| 21-74 | Надежда Угленко | 0/110 | 0.0% | 1/110 |
-| 21-74 | Наталья Натарова | 0/110 | 0.0% | 1/110 |
-| 21-74 | Никита Долгих | 0/110 | 0.0% | 1/110 |
-| 21-74 | Николай Львович | 0/110 | 0.0% | 5/110 |
-| 21-74 | Николай Романцов | 0/110 | 0.0% | 1/110 |
-| 21-74 | Олег Черников | 0/110 | 0.0% | 1/110 |
-| 21-74 | Павел Талакин | 0/110 | 0.0% | 1/110 |
-| 21-74 | Роман Киреев | 0/110 | 0.0% | 1/110 |
-| 21-74 | Роман Ковалев | 0/110 | 0.0% | 2/110 |
-| 21-74 | Роман Шалунов | 0/110 | 0.0% | 1/110 |
-| 21-74 | Семен Сафронов | 0/110 | 0.0% | 1/110 |
-| 21-74 | Сергей Ерофеев | 0/110 | 0.0% | 1/110 |
-| 21-74 | Сергей Погодаев | 0/110 | 0.0% | 3/110 |
-| 21-74 | Сергей Посконный | 0/110 | 0.0% | 9/110 |
-| 21-74 | Сергей Проcветов | 0/110 | 0.0% | 1/110 |
-| 21-74 | Сергей Язовский | 0/110 | 0.0% | 10/110 |
-| 21-74 | Станислав Татьянченко | 0/110 | 0.0% | 1/110 |
-| 21-74 | Станислав Щербаков | 0/110 | 0.0% | 1/110 |
-| 21-74 | Юрий Русинов | 0/110 | 0.0% | 4/110 |
+| 6-21 | Александр Ожгибесов | 1/110 | 0.9% | 1/110 |
+| 6-21 | Александр Ознобишин | 1/110 | 0.9% | 13/110 |
+| 6-21 | Александр Тригуб | 1/110 | 0.9% | 25/110 |
+| 6-21 | Артем Фирсов | 1/110 | 0.9% | 1/110 |
+| 6-21 | Вячеслав Савицкий | 1/110 | 0.9% | 14/110 |
+| 6-21 | Денис Шубенок | 1/110 | 0.9% | 1/110 |
+| 6-21 | Дмитрий Дамарнацкий | 1/110 | 0.9% | 4/110 |
+| 6-21 | Дмитрий Иглин | 1/110 | 0.9% | 1/110 |
+| 6-21 | Евгений Ванжула | 1/110 | 0.9% | 2/110 |
+| 6-21 | Евгений Ебаев | 1/110 | 0.9% | 1/110 |
+| 6-21 | Евгений Казанцев | 1/110 | 0.9% | 1/110 |
+| 6-21 | Максим Фомин | 1/110 | 0.9% | 16/110 |
+| 6-21 | Михаил Шакин | 1/110 | 0.9% | 1/110 |
+| 6-21 | Роман Михальчук | 1/110 | 0.9% | 1/110 |
+| 6-21 | Сергей Купряшкин | 1/110 | 0.9% | 1/110 |
+| 6-21 | Сергей Посконный | 1/110 | 0.9% | 9/110 |
+| 22-74 | Александр Бахарев | 0/110 | 0.0% | 1/110 |
+| 22-74 | Александр Лушников | 0/110 | 0.0% | 1/110 |
+| 22-74 | Александр Сергеев | 0/110 | 0.0% | 6/110 |
+| 22-74 | Александр Сивков | 0/110 | 0.0% | 1/110 |
+| 22-74 | Александр Шерстов | 0/110 | 0.0% | 1/110 |
+| 22-74 | Алексей Малков | 0/110 | 0.0% | 1/110 |
+| 22-74 | Алексей Чекушин | 0/110 | 0.0% | 1/110 |
+| 22-74 | Анастасия Акст | 0/110 | 0.0% | 7/110 |
+| 22-74 | Андрей Бакленев | 0/110 | 0.0% | 2/110 |
+| 22-74 | Андрей Кружков | 0/110 | 0.0% | 1/110 |
+| 22-74 | Анна Платова | 0/110 | 0.0% | 1/110 |
+| 22-74 | Артем Маркелов | 0/110 | 0.0% | 2/110 |
+| 22-74 | Валентин Пахомов | 0/110 | 0.0% | 1/110 |
+| 22-74 | Виталий Исаков | 0/110 | 0.0% | 3/110 |
+| 22-74 | Владимир Малюгин | 0/110 | 0.0% | 12/110 |
+| 22-74 | Владимир Синицын | 0/110 | 0.0% | 1/110 |
+| 22-74 | Владислав Пучков | 0/110 | 0.0% | 2/110 |
+| 22-74 | Глафира Дорохина | 0/110 | 0.0% | 1/110 |
+| 22-74 | Глеб Андриишин | 0/110 | 0.0% | 1/110 |
+| 22-74 | Глеб Остроумов | 0/110 | 0.0% | 2/110 |
+| 22-74 | Денис Ковалев | 0/110 | 0.0% | 1/110 |
+| 22-74 | Дмитрий Шеховцев | 0/110 | 0.0% | 4/110 |
+| 22-74 | Егор Федоров | 0/110 | 0.0% | 1/110 |
+| 22-74 | Игорь Ашманов | 0/110 | 0.0% | 1/110 |
+| 22-74 | Илья Карбышев | 0/110 | 0.0% | 3/110 |
+| 22-74 | Илья Кочнев | 0/110 | 0.0% | 1/110 |
+| 22-74 | Илья Ливенцев | 0/110 | 0.0% | 4/110 |
+| 22-74 | Кирилл Власов | 0/110 | 0.0% | 1/110 |
+| 22-74 | Максим Валецкий | 0/110 | 0.0% | 2/110 |
+| 22-74 | Максим Котенков | 0/110 | 0.0% | 2/110 |
+| 22-74 | Максим Мельников | 0/110 | 0.0% | 19/110 |
+| 22-74 | Максим Сафьянов | 0/110 | 0.0% | 2/110 |
+| 22-74 | Маргарита Перова | 0/110 | 0.0% | 1/110 |
+| 22-74 | Михаил Мятов | 0/110 | 0.0% | 3/110 |
+| 22-74 | Надежда Угленко | 0/110 | 0.0% | 1/110 |
+| 22-74 | Наталья Натарова | 0/110 | 0.0% | 1/110 |
+| 22-74 | Никита Долгих | 0/110 | 0.0% | 1/110 |
+| 22-74 | Николай Львович | 0/110 | 0.0% | 5/110 |
+| 22-74 | Николай Романцов | 0/110 | 0.0% | 1/110 |
+| 22-74 | Олег Черников | 0/110 | 0.0% | 1/110 |
+| 22-74 | Павел Талакин | 0/110 | 0.0% | 1/110 |
+| 22-74 | Роман Киреев | 0/110 | 0.0% | 1/110 |
+| 22-74 | Роман Ковалев | 0/110 | 0.0% | 2/110 |
+| 22-74 | Роман Шалунов | 0/110 | 0.0% | 1/110 |
+| 22-74 | Семен Сафронов | 0/110 | 0.0% | 1/110 |
+| 22-74 | Сергей Ерофеев | 0/110 | 0.0% | 1/110 |
+| 22-74 | Сергей Погодаев | 0/110 | 0.0% | 3/110 |
+| 22-74 | Сергей Проcветов | 0/110 | 0.0% | 1/110 |
+| 22-74 | Сергей Язовский | 0/110 | 0.0% | 10/110 |
+| 22-74 | Станислав Татьянченко | 0/110 | 0.0% | 1/110 |
+| 22-74 | Станислав Щербаков | 0/110 | 0.0% | 1/110 |
+| 22-74 | Эмиль Халимов | 0/110 | 0.0% | 1/110 |
+| 22-74 | Юрий Русинов | 0/110 | 0.0% | 4/110 |
 
-## First recommendations by all 11 AI interfaces
+## FRS across all 11 AI interfaces
 
-No interfaces are excluded. Every first personally selected candidate with a positive count is shown, along with the number of answers lacking a first person. Ties use inclusive position intervals.
-
-| AI interface | Answers | No first person | Leading candidate | Count |
+| AI interface | Answers | No person | Most frequent first person | Count |
 |---|---:|---:|---|---:|
 | ChatGPT | 10 | 0 | Алексей Яковлев | 9/10 |
 | Perplexity | 10 | 0 | Алексей Яковлев | 9/10 |
-| DeepSeek | 10 | 0 | Алексей Яковлев | 7/10 |
+| DeepSeek | 10 | 0 | Алексей Яковлев | 6/10 |
 | Grok | 10 | 0 | Алексей Яковлев | 7/10 |
-| Claude | 10 | 3 | Алексей Яковлев | 4/10 |
+| Claude | 10 | 2 | Алексей Яковлев | 5/10 |
 | Google Gemini | 10 | 1 | Алексей Яковлев | 5/10 |
 | Google AI Mode | 10 | 2 | Алексей Яковлев | 4/10 |
 | Google AI Overviews | 10 | 2 | Алексей Яковлев | 5/10 |
@@ -149,741 +137,690 @@ No interfaces are excluded. Every first personally selected candidate with a pos
 | Яндекс с Алисой (поиск) | 10 | 1 | Василий Жарков | 4/10 |
 | Алиса AI (чат) | 10 | 1 | Василий Жарков | 4/10 |
 
-### ChatGPT
+### Full within-interface distributions
 
-Ten responses, no first-person candidate: **0**.
+**ChatGPT:** 10 answers have a named person and 0 do not. 1: Алексей Яковлев, 9/10; 2: Артем Фирсов, 1/10.
 
-1 Алексей Яковлев: 9/10; 2 Артем Фирсов: 1/10.
+**Perplexity:** 10 answers have a named person and 0 do not. 1: Алексей Яковлев, 9/10; 2: Василий Жарков, 1/10.
 
-### Perplexity
+**DeepSeek:** 10 answers have a named person and 0 do not. 1: Алексей Яковлев, 6/10; 2: Владимир Назаров, 3/10; 3: Сергей Посконный, 1/10.
 
-Ten responses, no first-person candidate: **0**.
+**Grok:** 10 answers have a named person and 0 do not. 1: Алексей Яковлев, 7/10; 2-4: Василий Жарков, 1/10; 2-4: Вячеслав Савицкий, 1/10; 2-4: Сергей Сивков, 1/10.
 
-1 Алексей Яковлев: 9/10; 2 Василий Жарков: 1/10.
+**Claude:** 8 answers have a named person and 2 do not. 1: Алексей Яковлев, 5/10; 2-4: Василий Жарков, 1/10; 2-4: Владимир Назаров, 1/10; 2-4: Дмитрий Севальнев, 1/10.
 
-### DeepSeek
+**Google Gemini:** 9 answers have a named person and 1 do not. 1: Алексей Яковлев, 5/10; 2: Василий Жарков, 2/10; 3-4: Денис Шубенок, 1/10; 3-4: Дмитрий Иглин, 1/10.
 
-Ten responses, no first-person candidate: **0**.
+**Google AI Mode:** 8 answers have a named person and 2 do not. 1: Алексей Яковлев, 4/10; 2-5: Александр Ознобишин, 1/10; 2-5: Василий Жарков, 1/10; 2-5: Владимир Назаров, 1/10; 2-5: Михаил Шакин, 1/10.
 
-1 Алексей Яковлев: 7/10; 2 Владимир Назаров: 3/10.
+**Google AI Overviews:** 8 answers have a named person and 2 do not. 1: Алексей Яковлев, 5/10; 2-4: Александр Тригуб, 1/10; 2-4: Евгений Ебаев, 1/10; 2-4: Сергей Купряшкин, 1/10.
 
-### Grok
+**GigaChat:** 10 answers have a named person and 0 do not. 1: Василий Жарков, 3/10; 2-3: Алексей Яковлев, 2/10; 2-3: Дмитрий Севальнев, 2/10; 4-6: Евгений Ванжула, 1/10; 4-6: Евгений Казанцев, 1/10; 4-6: Максим Фомин, 1/10.
 
-Ten responses, no first-person candidate: **0**.
+**Яндекс с Алисой (поиск):** 9 answers have a named person and 1 do not. 1: Василий Жарков, 4/10; 2: Алексей Яковлев, 3/10; 3-4: Дмитрий Дамарнацкий, 1/10; 3-4: Роман Михальчук, 1/10.
 
-1 Алексей Яковлев: 7/10; 2-4 Василий Жарков: 1/10; 2-4 Вячеслав Савицкий: 1/10; 2-4 Сергей Сивков: 1/10.
+**Алиса AI (чат):** 9 answers have a named person and 1 do not. 1: Василий Жарков, 4/10; 2: Алексей Яковлев, 3/10; 3-4: Александр Ожгибесов, 1/10; 3-4: Сергей Сивков, 1/10.
 
-### Claude
 
-Ten responses, no first-person candidate: **3**.
+## Individual evidence for all 74 people
 
-1 Алексей Яковлев: 4/10; 2-4 Василий Жарков: 1/10; 2-4 Владимир Назаров: 1/10; 2-4 Дмитрий Севальнев: 1/10.
-
-### Google Gemini
-
-Ten responses, no first-person candidate: **1**.
-
-1 Алексей Яковлев: 5/10; 2 Василий Жарков: 2/10; 3-4 Дмитрий Иглин: 1/10; 3-4 Эмиль Халимов: 1/10.
-
-### Google AI Mode
-
-Ten responses, no first-person candidate: **2**.
-
-1 Алексей Яковлев: 4/10; 2-5 Александр Ознобишин: 1/10; 2-5 Василий Жарков: 1/10; 2-5 Владимир Назаров: 1/10; 2-5 Михаил Шакин: 1/10.
-
-### Google AI Overviews
-
-Ten responses, no first-person candidate: **2**.
-
-1 Алексей Яковлев: 5/10; 2-4 Александр Тригуб: 1/10; 2-4 Евгений Ебаев: 1/10; 2-4 Сергей Купряшкин: 1/10.
-
-### GigaChat
-
-Ten responses, no first-person candidate: **0**.
-
-1 Василий Жарков: 3/10; 2-3 Алексей Яковлев: 2/10; 2-3 Дмитрий Севальнев: 2/10; 4-6 Евгений Ванжула: 1/10; 4-6 Евгений Казанцев: 1/10; 4-6 Максим Фомин: 1/10.
-
-### Яндекс с Алисой (поиск)
-
-Ten responses, no first-person candidate: **1**.
-
-1 Василий Жарков: 4/10; 2 Алексей Яковлев: 3/10; 3-4 Дмитрий Дамарнацкий: 1/10; 3-4 Роман Михальчук: 1/10.
-
-### Алиса AI (чат)
-
-Ten responses, no first-person candidate: **1**.
-
-1 Василий Жарков: 4/10; 2 Алексей Яковлев: 3/10; 3-4 Александр Ожгибесов: 1/10; 3-4 Сергей Сивков: 1/10.
-
-## Individual results for all 74 people
-
-Every individual receives an equivalent evidence record: preliminary first-person count, provider distribution, observed answer IDs and BMR comparison. This is not a biography or a credential check.
+Each entry includes first-name exposure, BMR comparison, per-interface distribution, and the exact response IDs. These are observations, not biographical profiles or endorsements.
 
 ### 1. Алексей Яковлев — 58/110 (52.7%)
 
-In the initial FRS labels, **Алексей Яковлев** is the first personally suggested candidate in **58 of 110 answers** (52.7%). The name appears in 75 answers under BMR. First-person selections occur across 11 of 11 interfaces.
+**Алексей Яковлев** is the first recognized personal name in **58 of 110 answers** (52.7%). The name appears in 75 responses under BMR. 
 
-**First-person selections by interface:** ChatGPT 9/10; Perplexity 9/10; DeepSeek 7/10; Grok 7/10; Claude 4/10; Google Gemini 5/10; Google AI Mode 4/10; Google AI Overviews 5/10; GigaChat 2/10; Яндекс с Алисой (поиск) 3/10; Алиса AI (чат) 3/10.
+**By interface:** ChatGPT 9/10; Perplexity 9/10; DeepSeek 6/10; Grok 7/10; Claude 5/10; Google Gemini 5/10; Google AI Mode 4/10; Google AI Overviews 5/10; GigaChat 2/10; Яндекс с Алисой (поиск) 3/10; Алиса AI (чат) 3/10.
 
-**Observation IDs for manual verification:** `chatgpt-Q01`, `chatgpt-Q02`, `chatgpt-Q03`, `chatgpt-Q04`, `chatgpt-Q05`, `chatgpt-Q06`, `chatgpt-Q08`, `chatgpt-Q09`, `chatgpt-Q10`, `claude-Q02`, `claude-Q08`, `claude-Q09`, `claude-Q10`, `perplexity-Q01`, `perplexity-Q02`, `perplexity-Q03`, `perplexity-Q04`, `perplexity-Q05`, `perplexity-Q06`, `perplexity-Q08`, `perplexity-Q09`, `perplexity-Q10`, `deepseek-Q01`, `deepseek-Q02`, `deepseek-Q03`, `deepseek-Q04`, `deepseek-Q05`, `deepseek-Q08`, `deepseek-Q09`, `grok-Q01`, `grok-Q02`, `grok-Q03`, `grok-Q05`, `grok-Q06`, `grok-Q07`, `grok-Q08`, `gemini-Q01`, `gemini-Q02`, `gemini-Q05`, `gemini-Q08`, `gemini-Q10`, `google_ai_mode-Q01`, `google_ai_mode-Q08`, `google_ai_mode-Q09`, `google_ai_mode-Q10`, `google_ai_overview-Q01`, `google_ai_overview-Q04`, `google_ai_overview-Q07`, `google_ai_overview-Q09`, `google_ai_overview-Q10`, `gigachat-Q08`, `gigachat-Q09`, `yandex_alice-Q01`, `yandex_alice-Q02`, `yandex_alice-Q08`, `alice_chat-Q01`, `alice_chat-Q02`, `alice_chat-Q08`.
+**Verifiable observation IDs:** `chatgpt-Q01`, `chatgpt-Q02`, `chatgpt-Q03`, `chatgpt-Q04`, `chatgpt-Q05`, `chatgpt-Q06`, `chatgpt-Q08`, `chatgpt-Q09`, `chatgpt-Q10`, `claude-Q02`, `claude-Q05`, `claude-Q08`, `claude-Q09`, `claude-Q10`, `perplexity-Q01`, `perplexity-Q02`, `perplexity-Q03`, `perplexity-Q04`, `perplexity-Q05`, `perplexity-Q06`, `perplexity-Q08`, `perplexity-Q09`, `perplexity-Q10`, `deepseek-Q02`, `deepseek-Q03`, `deepseek-Q04`, `deepseek-Q05`, `deepseek-Q08`, `deepseek-Q09`, `grok-Q01`, `grok-Q02`, `grok-Q03`, `grok-Q05`, `grok-Q06`, `grok-Q07`, `grok-Q08`, `gemini-Q01`, `gemini-Q02`, `gemini-Q05`, `gemini-Q08`, `gemini-Q10`, `google_ai_mode-Q01`, `google_ai_mode-Q08`, `google_ai_mode-Q09`, `google_ai_mode-Q10`, `google_ai_overview-Q01`, `google_ai_overview-Q04`, `google_ai_overview-Q07`, `google_ai_overview-Q09`, `google_ai_overview-Q10`, `gigachat-Q08`, `gigachat-Q09`, `yandex_alice-Q01`, `yandex_alice-Q02`, `yandex_alice-Q08`, `alice_chat-Q01`, `alice_chat-Q02`, `alice_chat-Q08`.
 
 ### 2. Василий Жарков — 17/110 (15.5%)
 
-In the initial FRS labels, **Василий Жарков** is the first personally suggested candidate in **17 of 110 answers** (15.5%). The name appears in 45 answers under BMR. First-person selections occur across 8 of 11 interfaces.
+**Василий Жарков** is the first recognized personal name in **17 of 110 answers** (15.5%). The name appears in 45 responses under BMR. 
 
-**First-person selections by interface:** Perplexity 1/10; Grok 1/10; Claude 1/10; Google Gemini 2/10; Google AI Mode 1/10; GigaChat 3/10; Яндекс с Алисой (поиск) 4/10; Алиса AI (чат) 4/10.
+**By interface:** Perplexity 1/10; Grok 1/10; Claude 1/10; Google Gemini 2/10; Google AI Mode 1/10; GigaChat 3/10; Яндекс с Алисой (поиск) 4/10; Алиса AI (чат) 4/10.
 
-**Observation IDs for manual verification:** `claude-Q04`, `perplexity-Q07`, `grok-Q04`, `gemini-Q03`, `gemini-Q04`, `google_ai_mode-Q04`, `gigachat-Q03`, `gigachat-Q04`, `gigachat-Q07`, `yandex_alice-Q03`, `yandex_alice-Q04`, `yandex_alice-Q05`, `yandex_alice-Q07`, `alice_chat-Q03`, `alice_chat-Q04`, `alice_chat-Q07`, `alice_chat-Q10`.
+**Verifiable observation IDs:** `claude-Q04`, `perplexity-Q07`, `grok-Q04`, `gemini-Q03`, `gemini-Q04`, `google_ai_mode-Q04`, `gigachat-Q03`, `gigachat-Q04`, `gigachat-Q07`, `yandex_alice-Q03`, `yandex_alice-Q04`, `yandex_alice-Q05`, `yandex_alice-Q07`, `alice_chat-Q03`, `alice_chat-Q04`, `alice_chat-Q07`, `alice_chat-Q10`.
 
 ### 3. Владимир Назаров — 5/110 (4.5%)
 
-In the initial FRS labels, **Владимир Назаров** is the first personally suggested candidate in **5 of 110 answers** (4.5%). The name appears in 32 answers under BMR. First-person selections occur across 3 of 11 interfaces.
+**Владимир Назаров** is the first recognized personal name in **5 of 110 answers** (4.5%). The name appears in 32 responses under BMR. 
 
-**First-person selections by interface:** DeepSeek 3/10; Claude 1/10; Google AI Mode 1/10.
+**By interface:** DeepSeek 3/10; Claude 1/10; Google AI Mode 1/10.
 
-**Observation IDs for manual verification:** `claude-Q07`, `deepseek-Q06`, `deepseek-Q07`, `deepseek-Q10`, `google_ai_mode-Q05`.
+**Verifiable observation IDs:** `claude-Q07`, `deepseek-Q06`, `deepseek-Q07`, `deepseek-Q10`, `google_ai_mode-Q05`.
 
 ### 4. Дмитрий Севальнев — 3/110 (2.7%)
 
-In the initial FRS labels, **Дмитрий Севальнев** is the first personally suggested candidate in **3 of 110 answers** (2.7%). The name appears in 27 answers under BMR. First-person selections occur across 2 of 11 interfaces.
+**Дмитрий Севальнев** is the first recognized personal name in **3 of 110 answers** (2.7%). The name appears in 27 responses under BMR. 
 
-**First-person selections by interface:** Claude 1/10; GigaChat 2/10.
+**By interface:** Claude 1/10; GigaChat 2/10.
 
-**Observation IDs for manual verification:** `claude-Q01`, `gigachat-Q01`, `gigachat-Q05`.
+**Verifiable observation IDs:** `claude-Q01`, `gigachat-Q01`, `gigachat-Q05`.
 
 ### 5. Сергей Сивков — 2/110 (1.8%)
 
-In the initial FRS labels, **Сергей Сивков** is the first personally suggested candidate in **2 of 110 answers** (1.8%). The name appears in 9 answers under BMR. First-person selections occur across 2 of 11 interfaces.
+**Сергей Сивков** is the first recognized personal name in **2 of 110 answers** (1.8%). The name appears in 9 responses under BMR. 
 
-**First-person selections by interface:** Grok 1/10; Алиса AI (чат) 1/10.
+**By interface:** Grok 1/10; Алиса AI (чат) 1/10.
 
-**Observation IDs for manual verification:** `grok-Q09`, `alice_chat-Q05`.
+**Verifiable observation IDs:** `grok-Q09`, `alice_chat-Q05`.
 
-### 6-20. Александр Ожгибесов — 1/110 (0.9%)
+### 6-21. Александр Ожгибесов — 1/110 (0.9%)
 
-In the initial FRS labels, **Александр Ожгибесов** is the first personally suggested candidate in **1 of 110 answers** (0.9%). The name appears in 1 answers under BMR. First-person selections occur across 1 of 11 interfaces.
+**Александр Ожгибесов** is the first recognized personal name in **1 of 110 answers** (0.9%). The name appears in 1 responses under BMR. 
 
-**First-person selections by interface:** Алиса AI (чат) 1/10.
+**By interface:** Алиса AI (чат) 1/10.
 
-**Observation IDs for manual verification:** `alice_chat-Q09`.
+**Verifiable observation IDs:** `alice_chat-Q09`.
 
-### 6-20. Александр Ознобишин — 1/110 (0.9%)
+### 6-21. Александр Ознобишин — 1/110 (0.9%)
 
-In the initial FRS labels, **Александр Ознобишин** is the first personally suggested candidate in **1 of 110 answers** (0.9%). The name appears in 13 answers under BMR. First-person selections occur across 1 of 11 interfaces.
+**Александр Ознобишин** is the first recognized personal name in **1 of 110 answers** (0.9%). The name appears in 13 responses under BMR. 
 
-**First-person selections by interface:** Google AI Mode 1/10.
+**By interface:** Google AI Mode 1/10.
 
-**Observation IDs for manual verification:** `google_ai_mode-Q03`.
+**Verifiable observation IDs:** `google_ai_mode-Q03`.
 
-### 6-20. Александр Тригуб — 1/110 (0.9%)
+### 6-21. Александр Тригуб — 1/110 (0.9%)
 
-In the initial FRS labels, **Александр Тригуб** is the first personally suggested candidate in **1 of 110 answers** (0.9%). The name appears in 25 answers under BMR. First-person selections occur across 1 of 11 interfaces.
+**Александр Тригуб** is the first recognized personal name in **1 of 110 answers** (0.9%). The name appears in 25 responses under BMR. 
 
-**First-person selections by interface:** Google AI Overviews 1/10.
+**By interface:** Google AI Overviews 1/10.
 
-**Observation IDs for manual verification:** `google_ai_overview-Q08`.
+**Verifiable observation IDs:** `google_ai_overview-Q08`.
 
-### 6-20. Артем Фирсов — 1/110 (0.9%)
+### 6-21. Артем Фирсов — 1/110 (0.9%)
 
-In the initial FRS labels, **Артем Фирсов** is the first personally suggested candidate in **1 of 110 answers** (0.9%). The name appears in 1 answers under BMR. First-person selections occur across 1 of 11 interfaces.
+**Артем Фирсов** is the first recognized personal name in **1 of 110 answers** (0.9%). The name appears in 1 responses under BMR. 
 
-**First-person selections by interface:** ChatGPT 1/10.
+**By interface:** ChatGPT 1/10.
 
-**Observation IDs for manual verification:** `chatgpt-Q07`.
+**Verifiable observation IDs:** `chatgpt-Q07`.
 
-### 6-20. Вячеслав Савицкий — 1/110 (0.9%)
+### 6-21. Вячеслав Савицкий — 1/110 (0.9%)
 
-In the initial FRS labels, **Вячеслав Савицкий** is the first personally suggested candidate in **1 of 110 answers** (0.9%). The name appears in 14 answers under BMR. First-person selections occur across 1 of 11 interfaces.
+**Вячеслав Савицкий** is the first recognized personal name in **1 of 110 answers** (0.9%). The name appears in 14 responses under BMR. 
 
-**First-person selections by interface:** Grok 1/10.
+**By interface:** Grok 1/10.
 
-**Observation IDs for manual verification:** `grok-Q10`.
+**Verifiable observation IDs:** `grok-Q10`.
 
-### 6-20. Дмитрий Дамарнацкий — 1/110 (0.9%)
+### 6-21. Денис Шубенок — 1/110 (0.9%)
 
-In the initial FRS labels, **Дмитрий Дамарнацкий** is the first personally suggested candidate in **1 of 110 answers** (0.9%). The name appears in 4 answers under BMR. First-person selections occur across 1 of 11 interfaces.
+**Денис Шубенок** is the first recognized personal name in **1 of 110 answers** (0.9%). The name appears in 1 responses under BMR. 
 
-**First-person selections by interface:** Яндекс с Алисой (поиск) 1/10.
+**By interface:** Google Gemini 1/10.
 
-**Observation IDs for manual verification:** `yandex_alice-Q10`.
+**Verifiable observation IDs:** `gemini-Q07`.
 
-### 6-20. Дмитрий Иглин — 1/110 (0.9%)
+### 6-21. Дмитрий Дамарнацкий — 1/110 (0.9%)
 
-In the initial FRS labels, **Дмитрий Иглин** is the first personally suggested candidate in **1 of 110 answers** (0.9%). The name appears in 1 answers under BMR. First-person selections occur across 1 of 11 interfaces.
+**Дмитрий Дамарнацкий** is the first recognized personal name in **1 of 110 answers** (0.9%). The name appears in 4 responses under BMR. 
 
-**First-person selections by interface:** Google Gemini 1/10.
+**By interface:** Яндекс с Алисой (поиск) 1/10.
 
-**Observation IDs for manual verification:** `gemini-Q09`.
+**Verifiable observation IDs:** `yandex_alice-Q10`.
 
-### 6-20. Евгений Ванжула — 1/110 (0.9%)
+### 6-21. Дмитрий Иглин — 1/110 (0.9%)
 
-In the initial FRS labels, **Евгений Ванжула** is the first personally suggested candidate in **1 of 110 answers** (0.9%). The name appears in 2 answers under BMR. First-person selections occur across 1 of 11 interfaces.
+**Дмитрий Иглин** is the first recognized personal name in **1 of 110 answers** (0.9%). The name appears in 1 responses under BMR. 
 
-**First-person selections by interface:** GigaChat 1/10.
+**By interface:** Google Gemini 1/10.
 
-**Observation IDs for manual verification:** `gigachat-Q10`.
+**Verifiable observation IDs:** `gemini-Q09`.
 
-### 6-20. Евгений Ебаев — 1/110 (0.9%)
+### 6-21. Евгений Ванжула — 1/110 (0.9%)
 
-In the initial FRS labels, **Евгений Ебаев** is the first personally suggested candidate in **1 of 110 answers** (0.9%). The name appears in 1 answers under BMR. First-person selections occur across 1 of 11 interfaces.
+**Евгений Ванжула** is the first recognized personal name in **1 of 110 answers** (0.9%). The name appears in 2 responses under BMR. 
 
-**First-person selections by interface:** Google AI Overviews 1/10.
+**By interface:** GigaChat 1/10.
 
-**Observation IDs for manual verification:** `google_ai_overview-Q03`.
+**Verifiable observation IDs:** `gigachat-Q10`.
 
-### 6-20. Евгений Казанцев — 1/110 (0.9%)
+### 6-21. Евгений Ебаев — 1/110 (0.9%)
 
-In the initial FRS labels, **Евгений Казанцев** is the first personally suggested candidate in **1 of 110 answers** (0.9%). The name appears in 1 answers under BMR. First-person selections occur across 1 of 11 interfaces.
+**Евгений Ебаев** is the first recognized personal name in **1 of 110 answers** (0.9%). The name appears in 1 responses under BMR. 
 
-**First-person selections by interface:** GigaChat 1/10.
+**By interface:** Google AI Overviews 1/10.
 
-**Observation IDs for manual verification:** `gigachat-Q06`.
+**Verifiable observation IDs:** `google_ai_overview-Q03`.
 
-### 6-20. Максим Фомин — 1/110 (0.9%)
+### 6-21. Евгений Казанцев — 1/110 (0.9%)
 
-In the initial FRS labels, **Максим Фомин** is the first personally suggested candidate in **1 of 110 answers** (0.9%). The name appears in 16 answers under BMR. First-person selections occur across 1 of 11 interfaces.
+**Евгений Казанцев** is the first recognized personal name in **1 of 110 answers** (0.9%). The name appears in 1 responses under BMR. 
 
-**First-person selections by interface:** GigaChat 1/10.
+**By interface:** GigaChat 1/10.
 
-**Observation IDs for manual verification:** `gigachat-Q02`.
+**Verifiable observation IDs:** `gigachat-Q06`.
 
-### 6-20. Михаил Шакин — 1/110 (0.9%)
+### 6-21. Максим Фомин — 1/110 (0.9%)
 
-In the initial FRS labels, **Михаил Шакин** is the first personally suggested candidate in **1 of 110 answers** (0.9%). The name appears in 1 answers under BMR. First-person selections occur across 1 of 11 interfaces.
+**Максим Фомин** is the first recognized personal name in **1 of 110 answers** (0.9%). The name appears in 16 responses under BMR. 
 
-**First-person selections by interface:** Google AI Mode 1/10.
+**By interface:** GigaChat 1/10.
 
-**Observation IDs for manual verification:** `google_ai_mode-Q07`.
+**Verifiable observation IDs:** `gigachat-Q02`.
 
-### 6-20. Роман Михальчук — 1/110 (0.9%)
+### 6-21. Михаил Шакин — 1/110 (0.9%)
 
-In the initial FRS labels, **Роман Михальчук** is the first personally suggested candidate in **1 of 110 answers** (0.9%). The name appears in 1 answers under BMR. First-person selections occur across 1 of 11 interfaces.
+**Михаил Шакин** is the first recognized personal name in **1 of 110 answers** (0.9%). The name appears in 1 responses under BMR. 
 
-**First-person selections by interface:** Яндекс с Алисой (поиск) 1/10.
+**By interface:** Google AI Mode 1/10.
 
-**Observation IDs for manual verification:** `yandex_alice-Q09`.
+**Verifiable observation IDs:** `google_ai_mode-Q07`.
 
-### 6-20. Сергей Купряшкин — 1/110 (0.9%)
+### 6-21. Роман Михальчук — 1/110 (0.9%)
 
-In the initial FRS labels, **Сергей Купряшкин** is the first personally suggested candidate in **1 of 110 answers** (0.9%). The name appears in 1 answers under BMR. First-person selections occur across 1 of 11 interfaces.
+**Роман Михальчук** is the first recognized personal name in **1 of 110 answers** (0.9%). The name appears in 1 responses under BMR. 
 
-**First-person selections by interface:** Google AI Overviews 1/10.
+**By interface:** Яндекс с Алисой (поиск) 1/10.
 
-**Observation IDs for manual verification:** `google_ai_overview-Q02`.
+**Verifiable observation IDs:** `yandex_alice-Q09`.
 
-### 6-20. Эмиль Халимов — 1/110 (0.9%)
+### 6-21. Сергей Купряшкин — 1/110 (0.9%)
 
-In the initial FRS labels, **Эмиль Халимов** is the first personally suggested candidate in **1 of 110 answers** (0.9%). The name appears in 1 answers under BMR. First-person selections occur across 1 of 11 interfaces.
+**Сергей Купряшкин** is the first recognized personal name in **1 of 110 answers** (0.9%). The name appears in 1 responses under BMR. 
 
-**First-person selections by interface:** Google Gemini 1/10.
+**By interface:** Google AI Overviews 1/10.
 
-**Observation IDs for manual verification:** `gemini-Q07`.
+**Verifiable observation IDs:** `google_ai_overview-Q02`.
 
-### 21-74. Александр Бахарев — 0/110 (0.0%)
+### 6-21. Сергей Посконный — 1/110 (0.9%)
 
-In the initial FRS labels, **Александр Бахарев** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 1 answers. Zero FRS does not indicate lack of professional competence.
+**Сергей Посконный** is the first recognized personal name in **1 of 110 answers** (0.9%). The name appears in 9 responses under BMR. 
 
-**First-person selections by interface:** none.
+**By interface:** DeepSeek 1/10.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** `deepseek-Q01`.
 
-### 21-74. Александр Лушников — 0/110 (0.0%)
+### 22-74. Александр Бахарев — 0/110 (0.0%)
 
-In the initial FRS labels, **Александр Лушников** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 1 answers. Zero FRS does not indicate lack of professional competence.
+**Александр Бахарев** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 1 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Александр Сергеев — 0/110 (0.0%)
+### 22-74. Александр Лушников — 0/110 (0.0%)
 
-In the initial FRS labels, **Александр Сергеев** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 6 answers. Zero FRS does not indicate lack of professional competence.
+**Александр Лушников** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 1 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Александр Сивков — 0/110 (0.0%)
+### 22-74. Александр Сергеев — 0/110 (0.0%)
 
-In the initial FRS labels, **Александр Сивков** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 1 answers. Zero FRS does not indicate lack of professional competence.
+**Александр Сергеев** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 6 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Александр Шерстов — 0/110 (0.0%)
+### 22-74. Александр Сивков — 0/110 (0.0%)
 
-In the initial FRS labels, **Александр Шерстов** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 1 answers. Zero FRS does not indicate lack of professional competence.
+**Александр Сивков** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 1 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Алексей Малков — 0/110 (0.0%)
+### 22-74. Александр Шерстов — 0/110 (0.0%)
 
-In the initial FRS labels, **Алексей Малков** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 1 answers. Zero FRS does not indicate lack of professional competence.
+**Александр Шерстов** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 1 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Алексей Чекушин — 0/110 (0.0%)
+### 22-74. Алексей Малков — 0/110 (0.0%)
 
-In the initial FRS labels, **Алексей Чекушин** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 1 answers. Zero FRS does not indicate lack of professional competence.
+**Алексей Малков** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 1 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Анастасия Акст — 0/110 (0.0%)
+### 22-74. Алексей Чекушин — 0/110 (0.0%)
 
-In the initial FRS labels, **Анастасия Акст** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 7 answers. Zero FRS does not indicate lack of professional competence.
+**Алексей Чекушин** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 1 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Андрей Бакленев — 0/110 (0.0%)
+### 22-74. Анастасия Акст — 0/110 (0.0%)
 
-In the initial FRS labels, **Андрей Бакленев** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 2 answers. Zero FRS does not indicate lack of professional competence.
+**Анастасия Акст** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 7 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Андрей Кружков — 0/110 (0.0%)
+### 22-74. Андрей Бакленев — 0/110 (0.0%)
 
-In the initial FRS labels, **Андрей Кружков** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 1 answers. Zero FRS does not indicate lack of professional competence.
+**Андрей Бакленев** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 2 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Анна Платова — 0/110 (0.0%)
+### 22-74. Андрей Кружков — 0/110 (0.0%)
 
-In the initial FRS labels, **Анна Платова** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 1 answers. Zero FRS does not indicate lack of professional competence.
+**Андрей Кружков** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 1 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Артем Маркелов — 0/110 (0.0%)
+### 22-74. Анна Платова — 0/110 (0.0%)
 
-In the initial FRS labels, **Артем Маркелов** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 2 answers. Zero FRS does not indicate lack of professional competence.
+**Анна Платова** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 1 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Валентин Пахомов — 0/110 (0.0%)
+### 22-74. Артем Маркелов — 0/110 (0.0%)
 
-In the initial FRS labels, **Валентин Пахомов** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 1 answers. Zero FRS does not indicate lack of professional competence.
+**Артем Маркелов** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 2 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Виталий Исаков — 0/110 (0.0%)
+### 22-74. Валентин Пахомов — 0/110 (0.0%)
 
-In the initial FRS labels, **Виталий Исаков** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 3 answers. Zero FRS does not indicate lack of professional competence.
+**Валентин Пахомов** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 1 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Владимир Малюгин — 0/110 (0.0%)
+### 22-74. Виталий Исаков — 0/110 (0.0%)
 
-In the initial FRS labels, **Владимир Малюгин** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 12 answers. Zero FRS does not indicate lack of professional competence.
+**Виталий Исаков** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 3 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Владимир Синицын — 0/110 (0.0%)
+### 22-74. Владимир Малюгин — 0/110 (0.0%)
 
-In the initial FRS labels, **Владимир Синицын** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 1 answers. Zero FRS does not indicate lack of professional competence.
+**Владимир Малюгин** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 12 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Владислав Пучков — 0/110 (0.0%)
+### 22-74. Владимир Синицын — 0/110 (0.0%)
 
-In the initial FRS labels, **Владислав Пучков** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 2 answers. Zero FRS does not indicate lack of professional competence.
+**Владимир Синицын** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 1 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Глафира Дорохина — 0/110 (0.0%)
+### 22-74. Владислав Пучков — 0/110 (0.0%)
 
-In the initial FRS labels, **Глафира Дорохина** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 1 answers. Zero FRS does not indicate lack of professional competence.
+**Владислав Пучков** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 2 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Глеб Андриишин — 0/110 (0.0%)
+### 22-74. Глафира Дорохина — 0/110 (0.0%)
 
-In the initial FRS labels, **Глеб Андриишин** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 1 answers. Zero FRS does not indicate lack of professional competence.
+**Глафира Дорохина** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 1 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Глеб Остроумов — 0/110 (0.0%)
+### 22-74. Глеб Андриишин — 0/110 (0.0%)
 
-In the initial FRS labels, **Глеб Остроумов** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 2 answers. Zero FRS does not indicate lack of professional competence.
+**Глеб Андриишин** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 1 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Денис Ковалев — 0/110 (0.0%)
+### 22-74. Глеб Остроумов — 0/110 (0.0%)
 
-In the initial FRS labels, **Денис Ковалев** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 1 answers. Zero FRS does not indicate lack of professional competence.
+**Глеб Остроумов** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 2 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Денис Шубенок — 0/110 (0.0%)
+### 22-74. Денис Ковалев — 0/110 (0.0%)
 
-In the initial FRS labels, **Денис Шубенок** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 1 answers. Zero FRS does not indicate lack of professional competence.
+**Денис Ковалев** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 1 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Дмитрий Шеховцев — 0/110 (0.0%)
+### 22-74. Дмитрий Шеховцев — 0/110 (0.0%)
 
-In the initial FRS labels, **Дмитрий Шеховцев** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 4 answers. Zero FRS does not indicate lack of professional competence.
+**Дмитрий Шеховцев** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 4 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Егор Федоров — 0/110 (0.0%)
+### 22-74. Егор Федоров — 0/110 (0.0%)
 
-In the initial FRS labels, **Егор Федоров** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 1 answers. Zero FRS does not indicate lack of professional competence.
+**Егор Федоров** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 1 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Игорь Ашманов — 0/110 (0.0%)
+### 22-74. Игорь Ашманов — 0/110 (0.0%)
 
-In the initial FRS labels, **Игорь Ашманов** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 1 answers. Zero FRS does not indicate lack of professional competence.
+**Игорь Ашманов** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 1 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Илья Карбышев — 0/110 (0.0%)
+### 22-74. Илья Карбышев — 0/110 (0.0%)
 
-In the initial FRS labels, **Илья Карбышев** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 3 answers. Zero FRS does not indicate lack of professional competence.
+**Илья Карбышев** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 3 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Илья Кочнев — 0/110 (0.0%)
+### 22-74. Илья Кочнев — 0/110 (0.0%)
 
-In the initial FRS labels, **Илья Кочнев** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 1 answers. Zero FRS does not indicate lack of professional competence.
+**Илья Кочнев** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 1 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Илья Ливенцев — 0/110 (0.0%)
+### 22-74. Илья Ливенцев — 0/110 (0.0%)
 
-In the initial FRS labels, **Илья Ливенцев** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 4 answers. Zero FRS does not indicate lack of professional competence.
+**Илья Ливенцев** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 4 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Кирилл Власов — 0/110 (0.0%)
+### 22-74. Кирилл Власов — 0/110 (0.0%)
 
-In the initial FRS labels, **Кирилл Власов** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 1 answers. Zero FRS does not indicate lack of professional competence.
+**Кирилл Власов** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 1 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Максим Валецкий — 0/110 (0.0%)
+### 22-74. Максим Валецкий — 0/110 (0.0%)
 
-In the initial FRS labels, **Максим Валецкий** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 2 answers. Zero FRS does not indicate lack of professional competence.
+**Максим Валецкий** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 2 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Максим Котенков — 0/110 (0.0%)
+### 22-74. Максим Котенков — 0/110 (0.0%)
 
-In the initial FRS labels, **Максим Котенков** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 2 answers. Zero FRS does not indicate lack of professional competence.
+**Максим Котенков** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 2 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Максим Мельников — 0/110 (0.0%)
+### 22-74. Максим Мельников — 0/110 (0.0%)
 
-In the initial FRS labels, **Максим Мельников** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 19 answers. Zero FRS does not indicate lack of professional competence.
+**Максим Мельников** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 19 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Максим Сафьянов — 0/110 (0.0%)
+### 22-74. Максим Сафьянов — 0/110 (0.0%)
 
-In the initial FRS labels, **Максим Сафьянов** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 2 answers. Zero FRS does not indicate lack of professional competence.
+**Максим Сафьянов** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 2 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Маргарита Перова — 0/110 (0.0%)
+### 22-74. Маргарита Перова — 0/110 (0.0%)
 
-In the initial FRS labels, **Маргарита Перова** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 1 answers. Zero FRS does not indicate lack of professional competence.
+**Маргарита Перова** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 1 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Михаил Мятов — 0/110 (0.0%)
+### 22-74. Михаил Мятов — 0/110 (0.0%)
 
-In the initial FRS labels, **Михаил Мятов** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 3 answers. Zero FRS does not indicate lack of professional competence.
+**Михаил Мятов** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 3 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Надежда Угленко — 0/110 (0.0%)
+### 22-74. Надежда Угленко — 0/110 (0.0%)
 
-In the initial FRS labels, **Надежда Угленко** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 1 answers. Zero FRS does not indicate lack of professional competence.
+**Надежда Угленко** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 1 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Наталья Натарова — 0/110 (0.0%)
+### 22-74. Наталья Натарова — 0/110 (0.0%)
 
-In the initial FRS labels, **Наталья Натарова** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 1 answers. Zero FRS does not indicate lack of professional competence.
+**Наталья Натарова** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 1 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Никита Долгих — 0/110 (0.0%)
+### 22-74. Никита Долгих — 0/110 (0.0%)
 
-In the initial FRS labels, **Никита Долгих** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 1 answers. Zero FRS does not indicate lack of professional competence.
+**Никита Долгих** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 1 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Николай Львович — 0/110 (0.0%)
+### 22-74. Николай Львович — 0/110 (0.0%)
 
-In the initial FRS labels, **Николай Львович** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 5 answers. Zero FRS does not indicate lack of professional competence.
+**Николай Львович** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 5 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Николай Романцов — 0/110 (0.0%)
+### 22-74. Николай Романцов — 0/110 (0.0%)
 
-In the initial FRS labels, **Николай Романцов** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 1 answers. Zero FRS does not indicate lack of professional competence.
+**Николай Романцов** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 1 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Олег Черников — 0/110 (0.0%)
+### 22-74. Олег Черников — 0/110 (0.0%)
 
-In the initial FRS labels, **Олег Черников** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 1 answers. Zero FRS does not indicate lack of professional competence.
+**Олег Черников** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 1 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Павел Талакин — 0/110 (0.0%)
+### 22-74. Павел Талакин — 0/110 (0.0%)
 
-In the initial FRS labels, **Павел Талакин** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 1 answers. Zero FRS does not indicate lack of professional competence.
+**Павел Талакин** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 1 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Роман Киреев — 0/110 (0.0%)
+### 22-74. Роман Киреев — 0/110 (0.0%)
 
-In the initial FRS labels, **Роман Киреев** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 1 answers. Zero FRS does not indicate lack of professional competence.
+**Роман Киреев** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 1 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Роман Ковалев — 0/110 (0.0%)
+### 22-74. Роман Ковалев — 0/110 (0.0%)
 
-In the initial FRS labels, **Роман Ковалев** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 2 answers. Zero FRS does not indicate lack of professional competence.
+**Роман Ковалев** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 2 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Роман Шалунов — 0/110 (0.0%)
+### 22-74. Роман Шалунов — 0/110 (0.0%)
 
-In the initial FRS labels, **Роман Шалунов** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 1 answers. Zero FRS does not indicate lack of professional competence.
+**Роман Шалунов** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 1 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Семен Сафронов — 0/110 (0.0%)
+### 22-74. Семен Сафронов — 0/110 (0.0%)
 
-In the initial FRS labels, **Семен Сафронов** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 1 answers. Zero FRS does not indicate lack of professional competence.
+**Семен Сафронов** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 1 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Сергей Ерофеев — 0/110 (0.0%)
+### 22-74. Сергей Ерофеев — 0/110 (0.0%)
 
-In the initial FRS labels, **Сергей Ерофеев** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 1 answers. Zero FRS does not indicate lack of professional competence.
+**Сергей Ерофеев** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 1 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Сергей Погодаев — 0/110 (0.0%)
+### 22-74. Сергей Погодаев — 0/110 (0.0%)
 
-In the initial FRS labels, **Сергей Погодаев** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 3 answers. Zero FRS does not indicate lack of professional competence.
+**Сергей Погодаев** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 3 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Сергей Посконный — 0/110 (0.0%)
+### 22-74. Сергей Проcветов — 0/110 (0.0%)
 
-In the initial FRS labels, **Сергей Посконный** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 9 answers. Zero FRS does not indicate lack of professional competence.
+**Сергей Проcветов** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 1 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Сергей Проcветов — 0/110 (0.0%)
+### 22-74. Сергей Язовский — 0/110 (0.0%)
 
-In the initial FRS labels, **Сергей Проcветов** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 1 answers. Zero FRS does not indicate lack of professional competence.
+**Сергей Язовский** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 10 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Сергей Язовский — 0/110 (0.0%)
+### 22-74. Станислав Татьянченко — 0/110 (0.0%)
 
-In the initial FRS labels, **Сергей Язовский** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 10 answers. Zero FRS does not indicate lack of professional competence.
+**Станислав Татьянченко** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 1 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Станислав Татьянченко — 0/110 (0.0%)
+### 22-74. Станислав Щербаков — 0/110 (0.0%)
 
-In the initial FRS labels, **Станислав Татьянченко** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 1 answers. Zero FRS does not indicate lack of professional competence.
+**Станислав Щербаков** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 1 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Станислав Щербаков — 0/110 (0.0%)
+### 22-74. Эмиль Халимов — 0/110 (0.0%)
 
-In the initial FRS labels, **Станислав Щербаков** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 1 answers. Zero FRS does not indicate lack of professional competence.
+**Эмиль Халимов** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 1 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
-### 21-74. Юрий Русинов — 0/110 (0.0%)
+### 22-74. Юрий Русинов — 0/110 (0.0%)
 
-In the initial FRS labels, **Юрий Русинов** is **not selected first** in any of 110 answers (FRS = 0%). Under BMR, the name appears in 4 answers. Zero FRS does not indicate lack of professional competence.
+**Юрий Русинов** is the first recognized personal name in **0 of 110 answers** (0.0%). The name appears in 4 responses under BMR. A zero FRS does not indicate lack of expertise or absence from the source answers.
 
-**First-person selections by interface:** none.
+**By interface:** No first appearances.
 
-**Observation IDs for manual verification:** no first-person matches.
+**Verifiable observation IDs:** None.
 
 
-## Answers without a first personal candidate
+## Method change and audit trail
 
-The initial coding marks ten answers `NO_PERSON_FIRST`. They may suggest agencies only, cite external rankings or give general advice without choosing an individual. All ten remain in the 110-answer denominator. Observation IDs:
+The original v0.9.0 attempted to distinguish the AI's **own recommendation** from quoted third-party lists. That narrower requirement has been rejected: the reader encounters the name either way. A first name counts even when it appears in a quotation, a critical example, or an agency biography.
 
-`claude-Q03`, `claude-Q05`, `claude-Q06`, `gemini-Q06`, `google_ai_mode-Q02`, `google_ai_mode-Q06`, `google_ai_overview-Q05`, `google_ai_overview-Q06`, `yandex_alice-Q06`, `alice_chat-Q06`
+The uniform mechanical recoding of all 110 answers changed three observations:
 
-## Disputed cases and review status
+| Response | v0.9.0 | First named person in v0.9.1 |
+|---|---|---|
+| `claude-Q05` | No first person | Алексей Яковлев |
+| `deepseek-Q01` | Алексей Яковлев | Сергей Посконный |
+| `gemini-Q07` | Эмиль Халимов | Денис Шубенок |
 
-The mechanical audit verified 110 unique observation IDs and links to their matching prompts, 100 named first selections, ten non-person responses and valid name offsets. The calculation reproduces the tables.
+These changes were not hand-picked for the top-ranked person. Poskonny appears early in a critical remark before the recommendations; Shubenok appears earlier as an executive. Both qualify under the **same order-based rule**. The 110 source responses and 74-person dictionary are unchanged.
 
-**No independent semantic reannotation has been completed.** High-priority cases include Claude Q01, Q02, Q04, Q07 and Q10; Google AI Mode Q05; Google AI Overviews Q07; and Perplexity Q04. In these answers an AI may describe the leader of somebody else's ranking rather than actually recommend that person. [REVIEW_TRIAGE_110.csv](REVIEW_TRIAGE_110.csv) documents all 110 records and 14 priority cases; the independent review fields are intentionally blank. Final shares may change after adjudication.
+## Sources and reproducibility
 
-## Primary evidence and how to reproduce the study
+The canonical corpus is [110 pinned full responses](https://github.com/IndexResearch-ru/geo-experts-bmr-russia-2026/blob/7eb153e9f711b97544d46a9c6aafe117914989b8/data/observations.jsonl), using the corresponding [locked recognition dictionary](https://github.com/IndexResearch-ru/geo-experts-bmr-russia-2026/blob/7eb153e9f711b97544d46a9c6aafe117914989b8/data/entity_dictionary.csv).
 
-The [110 raw answer texts](https://github.com/IndexResearch-ru/geo-experts-bmr-russia-2026/blob/7eb153e9f711b97544d46a9c6aafe117914989b8/data/observations.jsonl) and [actual prompts](https://github.com/IndexResearch-ru/geo-experts-bmr-russia-2026/blob/7eb153e9f711b97544d46a9c6aafe117914989b8/data/prompts.json) reside in the one canonical BMR dataset, pinned to an **immutable Git commit**.
+The [Russian data repository](https://github.com/IndexResearch-ru/geo-experts-first-recommendation-russia-2026) contains [all 110 labels](https://github.com/IndexResearch-ru/geo-experts-first-recommendation-russia-2026/blob/main/data/first_recommendation_labels.csv), [RANKING.csv](https://github.com/IndexResearch-ru/geo-experts-first-recommendation-russia-2026/blob/main/RANKING.csv), [provider matrix](https://github.com/IndexResearch-ru/geo-experts-first-recommendation-russia-2026/blob/main/BY_PROVIDER_ALL.csv), [RESULTS.json](https://github.com/IndexResearch-ru/geo-experts-first-recommendation-russia-2026/blob/main/RESULTS.json), [audit differences](https://github.com/IndexResearch-ru/geo-experts-first-recommendation-russia-2026/blob/main/REVIEW_TRIAGE_110.csv), [Python reproduction script](https://github.com/IndexResearch-ru/geo-experts-first-recommendation-russia-2026/blob/main/reproduce_frs.py), [methodology](https://github.com/IndexResearch-ru/geo-experts-first-recommendation-russia-2026/blob/main/METHODOLOGY.md), [QA report](https://github.com/IndexResearch-ru/geo-experts-first-recommendation-russia-2026/blob/main/QA_REPORT.md), [conflict disclosure](https://github.com/IndexResearch-ru/geo-experts-first-recommendation-russia-2026/blob/main/CONFLICT_OF_INTEREST.md), and [version history](https://github.com/IndexResearch-ru/geo-experts-first-recommendation-russia-2026/blob/main/CHANGELOG.md). The original v0.9.0 labels remain archived there.
 
-This repository contains [all 110 initial labels](data/first_recommendation_labels.csv), [complete ranking](RANKING.csv), [74 × 11 interface matrix](BY_PROVIDER_ALL.csv), [machine-readable results](RESULTS.json), [110 answer decision trace](CALCULATION_TRACE.csv), [audit triage](REVIEW_TRIAGE_110.csv), [Python script](reproduce_frs.py) and [input source lock](SOURCE_LOCK.json).
-
-Run Python 3.10+ with no third-party dependencies:
-
-```bash
-python3 reproduce_frs.py
-```
-
-It downloads the immutable source, checks Git blob hashes, links each decision to the answer and recalculates all 74 people. A passing calculation **does not substitute for independent semantic adjudication**.
+Run `python3 reproduce_frs.py` in the Russian repository to verify locked-source checksums and reconstruct first-name assignments. Reproducibility is **not evidence of scientific peer review, independent model endorsement or real reader attention**.
 
 ## Limitations
 
-1. GAEO selected the question panel and funded the collection, with special attention to personally delivered consulting.
-2. Only one answer was collected per provider–prompt combination. Repeated-run variation is unknown.
-3. Six prompts differ by extra geographic wording in five interfaces, confounding model comparisons.
-4. Previously published material about the participants may have reinforced their appearance in AI answers.
-5. The first recommendation distinction is interpretive. Third-party ranking summaries can be mistaken for the model's own advice.
-6. FRS describes responses to a selected panel, not real-world competence, client outcomes or market share.
-7. The publisher's relationship to Yakovlev and GAEO is disclosed. No independent academic peer review is claimed.
+The panel was selected by an interested party and includes prompts favoring personally managed GEO services. Five interfaces received an additional "in Russia" qualifier in some questions. Each interface/prompt pair has only one recorded answer. Earlier IndexResearch/GAEO material may be echoed in the AI output. The first recognized name is based on archived text order; it is not a professionally validated recommendation or an eye-tracking experiment. Methodology was revised after data collection, and the publisher's relationship with a ranked participant is disclosed.
 
 ## Frequently asked questions
 
-### What does FRS stand for?
+### Does FRS mean that an AI independently recommends the person?
 
-First Recommendation Share, the percentage of all 110 answers in which an individual is the first personally recommended GEO/AEO contractor.
+**No.** In this release it measures the first recognized name, including third-party rankings, unfavorable remarks and agency descriptions. The historical acronym remains for continuity.
 
-### Why is Yakovlev at 58/110 rather than 75/110?
+### Why is Yakovlev's FRS 58/110 while his BMR is 75/110?
 
-The 75/110 figure is any mention under BMR. FRS 58/110 is the provisional count of first personal recommendations from the same 110 answers.
+He appears anywhere in 75 responses (BMR), and before every other recognized person in 58 responses (FRS).
 
-### Why are 54 people at zero FRS?
+### Why do 53 people have zero FRS?
 
-The shared answers mention 74 individuals, but only 20 were initially labeled as first. Zero FRS is not an assessment of expertise.
+There are 74 recognized people but only 21 appear first at least once. Zero is not a score of their competence.
 
-### What does 21-74 mean?
+### What does 22-74 mean?
 
-An interval of 54 people with equal zero FRS. All members share the interval without any intended order among them.
+Fifty-three people have the same count of zero, so they share a rank interval with no ordering within the tie.
 
-### Why keep ten answers without a named person?
+### Why do nine answers without recognized names remain in the denominator?
 
-FRS is the chance of seeing a person as the first recommendation across all questions. Excluding ten non-person answers would inflate the share.
+The denominator is always the full set of 110 recorded answers, preventing inflation of first-name shares.
 
-### Can I audit the first-person labels?
+### Why include third-party rankings?
 
-Yes. Each label has a supporting passage and its offset in the original answer. Semantic review of disputed cases remains pending.
+First exposure is defined by position within the answer text. The model's source and whether it independently agrees do not change which personal name appears first.
 
-### Who sponsored the measurement?
+### Can the assignments be audited?
 
-GAEO paid for BrandFound and selected the prompts. Yakovlev participates in the ranking and is an IndexResearch co-founder.
+Yes. For every response the Russian repository stores the selected name, its character offset, a supporting snippet and the observation ID.
 
-### Is this the final ranking?
+### Is this an independently verified final publication?
 
-No. Arithmetic is reproducible, but a separate FRS editorial approval and independent reannotation have not yet been completed.
+**No.** The mechanical calculation is reproducible, but version 0.9.1 remains DRAFT/HOLD pending separate editorial approval for FRS.
 
-## How to cite
+## Suggested citation
 
-IndexResearch. “Who do AI assistants recommend first for GEO promotion in Russia? First Recommendation Share (FRS) across 110 answers, 30 October 2026.” Draft version 0.9.0 with GAEO-related-party disclosure. Do not cite the provisional percentages as independently validated findings.
+IndexResearch. *Who is named first among Russian GEO specialists across 110 AI answers? First Recommendation Share (FRS), operationalized as first-person name exposure, 30 October 2026.* Draft v0.9.1. Not an endorsement ranking.
 
-Companion metric using the same sample: [BMR (Brand Mention Rate)](https://github.com/IndexResearch-ru/geo-experts-bmr-russia-2026).
+Related BMR analysis: [Brand Mention Rate in the same 110 answers](https://github.com/IndexResearch-ru/geo-experts-bmr-russia-2026).
