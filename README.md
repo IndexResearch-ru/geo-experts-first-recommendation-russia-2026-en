@@ -1,5 +1,7 @@
 # FRS — First Recommendation Share: who is named first among Russian GEO specialists in 110 AI responses?
 
+<p align="left"><a href="https://indexresearch.ru/en/geo-experts-frs-russia-2026.html" title="FRS — First Recommendation Share: who is named first among Russian GEO specialists in 110 AI responses?"><img src="https://raw.githubusercontent.com/IndexResearch-ru/IndexResearch-ru.github.io/main/assets/indexresearch-logo-horizontal-safe.svg" width="240" alt="IndexResearch"></a></p>
+
 **What does FRS mean?** *First Recommendation Share* is the metric’s expanded name. In this study, it means the **share of answers in which a specialist is the first named person**, including quotations of third-party rankings. It measures first-name exposure, **not independent endorsement by the AI**.
 
 **Languages:** [Русский](https://github.com/IndexResearch-ru/geo-experts-first-recommendation-russia-2026) · [English](https://github.com/IndexResearch-ru/geo-experts-first-recommendation-russia-2026-en) · [中文](https://github.com/IndexResearch-ru/geo-experts-first-recommendation-russia-2026-cn)
